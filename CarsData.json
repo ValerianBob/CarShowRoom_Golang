@@ -1,0 +1,26 @@
+[
+ {
+  "Brand": "Ford",
+  "Model": "Mustang",
+  "Transmission": "Manual",
+  "Year": 2020,
+  "HoursePower": 550,
+  "Price": 65000
+ },
+ {
+  "Brand": "Chevrolet",
+  "Model": "Camaro",
+  "Transmission": "Auto",
+  "Year": 2020,
+  "HoursePower": 275,
+  "Price": 26000
+ },
+ {
+  "Brand": "Nissan",
+  "Model": "GTR",
+  "Transmission": "Auto",
+  "Year": 2017,
+  "HoursePower": 520,
+  "Price": 61000
+ }
+]
