@@ -22,6 +22,14 @@ func ClearConsole() {
 }
 
 func Init() {
+
+	CRUDHTTPHandler()
+	go func() {
+		if err := http.ListenAndServe(":8080", nil); err != nil {
+			fmt.Println("Server get error", err)
+		}
+	}()
+
 	AllCars := ReadCarsFromJson()
 
 	//Console inputs :
@@ -38,11 +46,11 @@ func Init() {
 		fmt.Println("2 - Add new car")
 		fmt.Println("3 - Change car info")
 		fmt.Println("4 - Remove car from showroom")
-		fmt.Println("HTTP :")
-		fmt.Println("5 - Show all cars by HTTP")
-		fmt.Println("6 - Add new car by HTTP")
-		fmt.Println("7 - Update car by HTTP")
-		fmt.Println("8 - Remove car by HTTP")
+		fmt.Println("You could do same by HTTP :")
+		fmt.Println("Show all cars by http://localhost:8080/cars")
+		fmt.Println("Add car by http://localhost:8080/cars/add")
+		fmt.Println("Update car by http://localhost:8080/cars/update")
+		fmt.Println("Delete car by http://localhost:8080/cars/delete")
 		fmt.Println()
 		fmt.Println("0 - Exit")
 		fmt.Println()
@@ -136,30 +144,6 @@ func Init() {
 					ClearConsole()
 				}
 			}
-
-		case "5":
-			http.HandleFunc("/cars", ShowCarsHTTPHandler)
-			fmt.Println("Server running on http://localhost:8080")
-			fmt.Println("Cars data sent on Browser !")
-			http.ListenAndServe(":8080", nil)
-
-			fmt.Scanln(&continueInput)
-			ClearConsole()
-
-		case "6":
-			http.HandleFunc("/add-new-car", AddNewCarHTTPHandler)
-			fmt.Println("Server running on http://localhost:8080")
-			http.ListenAndServe(":8080", nil)
-
-		case "7":
-			http.HandleFunc("/update-car", UpdateCarHTTPHandler)
-			fmt.Println("Server running on http://localhost:8080")
-			http.ListenAndServe(":8080", nil)
-
-		case "8":
-			http.HandleFunc("/remove-car", RemoveCarHTTPHandler)
-			fmt.Println("Server running on http://localhost:8080")
-			http.ListenAndServe(":8080", nil)
 
 		case "0":
 			fmt.Println()

@@ -1,11 +1,11 @@
 [
  {
   "brand": "Ford",
-  "model": "Mustang",
-  "transmission": "Manual",
-  "year": 2016,
-  "hoursepower": 430,
-  "price": 50000
+  "model": "Mustang Shelby",
+  "transmission": "Auto",
+  "year": 2013,
+  "hoursepower": 900,
+  "price": 2000000
  },
  {
   "brand": "Dodge",
@@ -38,5 +38,29 @@
   "year": 2012,
   "hoursepower": 700,
   "price": 300000
+ },
+ {
+  "brand": "Mersedes",
+  "model": "Bens",
+  "transmission": "Auto",
+  "year": 2000,
+  "hoursepower": 123,
+  "price": 2000
+ },
+ {
+  "brand": "Pagani",
+  "model": "Hyaura",
+  "transmission": "Auto",
+  "year": 1998,
+  "hoursepower": 900,
+  "price": 20000
+ },
+ {
+  "brand": "Buic",
+  "model": "Choper",
+  "transmission": "Manual",
+  "year": 2000,
+  "hoursepower": 900,
+  "price": 8000
  }
 ]

@@ -70,3 +70,10 @@ func RemoveCarHTTPHandler(w http.ResponseWriter, r *http.Request) {
 
 	SaveCarsInJson(Cars)
 }
+
+func CRUDHTTPHandler() {
+	http.HandleFunc("/cars", ShowCarsHTTPHandler)
+	http.HandleFunc("/cars/add", AddNewCarHTTPHandler)
+	http.HandleFunc("/cars/update", UpdateCarHTTPHandler)
+	http.HandleFunc("/cars/delete", RemoveCarHTTPHandler)
+}
