@@ -38,13 +38,5 @@
   "Year": 2018,
   "HoursePower": 500,
   "Price": 70000
- },
- {
-  "Brand": "Ferrari",
-  "Model": "F12",
-  "Transmission": "Auto",
-  "Year": 2012,
-  "HoursePower": 600,
-  "Price": 250000
  }
 ]
