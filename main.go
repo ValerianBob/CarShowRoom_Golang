@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"os/exec"
@@ -19,81 +18,6 @@ func ClearConsole() {
 		cmd.Stdout = os.Stdout
 		cmd.Run()
 	}
-}
-
-func ShowAllCar(cars []Car) {
-	for i := 0; i < len(cars); i++ {
-		fmt.Print(i + 1)
-		cars[i].ShowCarInfo()
-	}
-}
-
-func NewCarInfo() Car {
-	newBrand := ""
-	newModel := ""
-	newTransmission := ""
-	newYear := 0
-	newHoursePower := 0
-	newPrice := 0
-
-	fmt.Printf("Enter new Brand :")
-	fmt.Scanln(&newBrand)
-	fmt.Printf("Enter new Model :")
-	fmt.Scanln(&newModel)
-	fmt.Printf("Enter new Transmission :")
-	fmt.Scanln(&newTransmission)
-	fmt.Printf("Enter new Year :")
-	fmt.Scanln(&newYear)
-	fmt.Printf("Enter new Hourse Power :")
-	fmt.Scanln(&newHoursePower)
-	fmt.Printf("Enter new Price :")
-	fmt.Scanln(&newPrice)
-	fmt.Printf("")
-
-	newCar := Car{
-		Brand:        newBrand,
-		Model:        newModel,
-		Transmission: newTransmission,
-		Year:         newYear,
-		HoursePower:  newHoursePower,
-		Price:        newPrice,
-	}
-
-	return newCar
-}
-
-func SaveCarsInJson(c []Car) {
-	jsonData, err := json.MarshalIndent(c, "", " ")
-	if err != nil {
-		fmt.Println("Error with json save", err)
-		return
-	}
-
-	err = os.WriteFile("CarsData.json", jsonData, 0644)
-	if err != nil {
-		fmt.Println("Error writing to file:", err)
-		return
-	}
-}
-
-func ReadCarsFromJson() []Car {
-	AllCars := []Car{}
-
-	carsData, err := os.ReadFile("CarsData.json")
-	if err != nil {
-		fmt.Println("Error reading file:", err)
-		AllCars = []Car{}
-		return AllCars
-	}
-
-	err = json.Unmarshal(carsData, &AllCars)
-	if err != nil {
-		fmt.Println("Error decoding JSON:", err)
-		AllCars = []Car{}
-		return AllCars
-	}
-
-	return AllCars
 }
 
 func main() {

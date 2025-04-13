@@ -22,5 +22,21 @@
   "Year": 2017,
   "HoursePower": 520,
   "Price": 61000
+ },
+ {
+  "Brand": "Bently",
+  "Model": "Continental",
+  "Transmission": "Auto",
+  "Year": 2015,
+  "HoursePower": 320,
+  "Price": 10000
+ },
+ {
+  "Brand": "Mersedes",
+  "Model": "S-Class",
+  "Transmission": "Auto",
+  "Year": 2018,
+  "HoursePower": 500,
+  "Price": 70000
  }
 ]
