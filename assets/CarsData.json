@@ -38,5 +38,13 @@
   "Year": 2018,
   "HoursePower": 500,
   "Price": 70000
+ },
+ {
+  "Brand": "Honda",
+  "Model": "Civic",
+  "Transmission": "Manual",
+  "Year": 2001,
+  "HoursePower": 230,
+  "Price": 10000
  }
 ]
