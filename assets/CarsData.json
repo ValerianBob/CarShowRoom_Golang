@@ -1,42 +1,42 @@
 [
  {
-  "Brand": "Ford",
-  "Model": "Mustang",
-  "Transmission": "Manual",
-  "Year": 2020,
-  "HoursePower": 550,
-  "Price": 65000
+  "brand": "Ford",
+  "model": "Mustang",
+  "transmission": "Manual",
+  "year": 2016,
+  "hoursepower": 430,
+  "price": 50000
  },
  {
-  "Brand": "Chevrolet",
-  "Model": "Camaro",
-  "Transmission": "Auto",
-  "Year": 2020,
-  "HoursePower": 275,
-  "Price": 26000
+  "brand": "Dodge",
+  "model": "Challenger",
+  "transmission": "Auto",
+  "year": 2017,
+  "hoursepower": 500,
+  "price": 30000
  },
  {
-  "Brand": "Nissan",
-  "Model": "GTR",
-  "Transmission": "Auto",
-  "Year": 2017,
-  "HoursePower": 520,
-  "Price": 61000
+  "brand": "Dodge",
+  "model": "Charger",
+  "transmission": "Manual",
+  "year": 2015,
+  "hoursepower": 450,
+  "price": 60000
  },
  {
-  "Brand": "Bently",
-  "Model": "Continental",
-  "Transmission": "Auto",
-  "Year": 2015,
-  "HoursePower": 320,
-  "Price": 10000
+  "brand": "Ferrari",
+  "model": "F12",
+  "transmission": "Auto",
+  "year": 2012,
+  "hoursepower": 600,
+  "price": 200000
  },
  {
-  "Brand": "Mersedes",
-  "Model": "S-Class",
-  "Transmission": "Auto",
-  "Year": 2018,
-  "HoursePower": 500,
-  "Price": 70000
+  "brand": "Lamborgini",
+  "model": "Huracan",
+  "transmission": "Auto",
+  "year": 2012,
+  "hoursepower": 700,
+  "price": 300000
  }
 ]

@@ -2,6 +2,7 @@ package usecase
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 	"os/exec"
 	"runtime"
@@ -32,10 +33,16 @@ func Init() {
 		fmt.Println("----CAR-SHOWROOM----")
 		fmt.Println()
 		fmt.Println(" Actions :")
+		fmt.Println("Console :")
 		fmt.Println("1 - Show all cars")
 		fmt.Println("2 - Add new car")
 		fmt.Println("3 - Change car info")
 		fmt.Println("4 - Remove car from showroom")
+		fmt.Println("HTTP :")
+		fmt.Println("5 - Show all cars by HTTP")
+		fmt.Println("6 - Add new car by HTTP")
+		fmt.Println("7 - Update car by HTTP")
+		fmt.Println("8 - Remove car by HTTP")
 		fmt.Println()
 		fmt.Println("0 - Exit")
 		fmt.Println()
@@ -129,6 +136,30 @@ func Init() {
 					ClearConsole()
 				}
 			}
+
+		case "5":
+			http.HandleFunc("/cars", ShowCarsHTTPHandler)
+			fmt.Println("Server running on http://localhost:8080")
+			fmt.Println("Cars data sent on Browser !")
+			http.ListenAndServe(":8080", nil)
+
+			fmt.Scanln(&continueInput)
+			ClearConsole()
+
+		case "6":
+			http.HandleFunc("/add-new-car", AddNewCarHTTPHandler)
+			fmt.Println("Server running on http://localhost:8080")
+			http.ListenAndServe(":8080", nil)
+
+		case "7":
+			http.HandleFunc("/update-car", UpdateCarHTTPHandler)
+			fmt.Println("Server running on http://localhost:8080")
+			http.ListenAndServe(":8080", nil)
+
+		case "8":
+			http.HandleFunc("/remove-car", RemoveCarHTTPHandler)
+			fmt.Println("Server running on http://localhost:8080")
+			http.ListenAndServe(":8080", nil)
 
 		case "0":
 			fmt.Println()
