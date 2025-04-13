@@ -1,12 +1,13 @@
-package main
+package usecase
 
 import (
+	"Modules/internal/model"
 	"encoding/json"
 	"fmt"
 	"os"
 )
 
-func SaveCarsInJson(c []Car) {
+func SaveCarsInJson(c []model.Car) {
 	jsonData, err := json.MarshalIndent(c, "", " ")
 	if err != nil {
 		fmt.Println("Error with json save", err)
@@ -20,20 +21,20 @@ func SaveCarsInJson(c []Car) {
 	}
 }
 
-func ReadCarsFromJson() []Car {
-	AllCars := []Car{}
+func ReadCarsFromJson() []model.Car {
+	AllCars := []model.Car{}
 
 	carsData, err := os.ReadFile("../assets/CarsData.json")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
-		AllCars = []Car{}
+		AllCars = []model.Car{}
 		return AllCars
 	}
 
 	err = json.Unmarshal(carsData, &AllCars)
 	if err != nil {
 		fmt.Println("Error decoding JSON:", err)
-		AllCars = []Car{}
+		AllCars = []model.Car{}
 		return AllCars
 	}
 

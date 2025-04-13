@@ -1,6 +1,8 @@
 package main
 
 import (
+	"Modules/internal/model"
+	"Modules/internal/usecase"
 	"fmt"
 	"os"
 	"os/exec"
@@ -21,7 +23,7 @@ func ClearConsole() {
 }
 
 func main() {
-	AllCars := ReadCarsFromJson()
+	AllCars := usecase.ReadCarsFromJson()
 
 	//Console inputs :
 	userInput := ""
@@ -46,7 +48,7 @@ func main() {
 
 		case "1":
 			fmt.Println("")
-			ShowAllCar(AllCars)
+			model.ShowAllCar(AllCars)
 			fmt.Println()
 			fmt.Println("Press enter to continue :")
 			fmt.Scanln(&continueInput)
@@ -54,7 +56,7 @@ func main() {
 
 		case "2":
 			fmt.Println("")
-			newCar := NewCarInfo()
+			newCar := model.NewCarInfo()
 			AllCars = append(AllCars, newCar)
 
 			fmt.Println()
@@ -62,12 +64,12 @@ func main() {
 			fmt.Println()
 			fmt.Println("Press enter to continue :")
 			fmt.Scanln(&continueInput)
-			SaveCarsInJson(AllCars)
+			usecase.SaveCarsInJson(AllCars)
 			ClearConsole()
 
 		case "3":
 			fmt.Println("")
-			ShowAllCar(AllCars)
+			model.ShowAllCar(AllCars)
 			fmt.Println()
 			fmt.Println("Enter index of car to change info :")
 			fmt.Scanln(&index)
@@ -80,7 +82,7 @@ func main() {
 
 			} else {
 
-				newCar := NewCarInfo()
+				newCar := model.NewCarInfo()
 				AllCars[index-1] = newCar
 
 				fmt.Println()
@@ -88,7 +90,7 @@ func main() {
 				fmt.Println()
 				fmt.Println("Press enter to continue :")
 				fmt.Scanln(&continueInput)
-				SaveCarsInJson(AllCars)
+				usecase.SaveCarsInJson(AllCars)
 				ClearConsole()
 			}
 
@@ -104,7 +106,7 @@ func main() {
 
 				fmt.Println("")
 
-				ShowAllCar(AllCars)
+				model.ShowAllCar(AllCars)
 
 				fmt.Println()
 				fmt.Println("Enter index of car to remove :")
@@ -125,7 +127,7 @@ func main() {
 					fmt.Println()
 					fmt.Println("Press enter to continue :")
 					fmt.Scanln(&continueInput)
-					SaveCarsInJson(AllCars)
+					usecase.SaveCarsInJson(AllCars)
 					ClearConsole()
 				}
 			}
