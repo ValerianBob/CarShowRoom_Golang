@@ -1,7 +1,6 @@
 package main
 
 import (
-	"Modules/internal/model"
 	"Modules/internal/usecase"
 	"fmt"
 	"os"
@@ -48,7 +47,7 @@ func main() {
 
 		case "1":
 			fmt.Println("")
-			model.ShowAllCar(AllCars)
+			usecase.ShowAllCar(AllCars)
 			fmt.Println()
 			fmt.Println("Press enter to continue :")
 			fmt.Scanln(&continueInput)
@@ -56,7 +55,7 @@ func main() {
 
 		case "2":
 			fmt.Println("")
-			newCar := model.NewCarInfo()
+			newCar := usecase.NewCarInfo()
 			AllCars = append(AllCars, newCar)
 
 			fmt.Println()
@@ -69,7 +68,7 @@ func main() {
 
 		case "3":
 			fmt.Println("")
-			model.ShowAllCar(AllCars)
+			usecase.ShowAllCar(AllCars)
 			fmt.Println()
 			fmt.Println("Enter index of car to change info :")
 			fmt.Scanln(&index)
@@ -82,7 +81,7 @@ func main() {
 
 			} else {
 
-				newCar := model.NewCarInfo()
+				newCar := usecase.NewCarInfo()
 				AllCars[index-1] = newCar
 
 				fmt.Println()
@@ -106,7 +105,7 @@ func main() {
 
 				fmt.Println("")
 
-				model.ShowAllCar(AllCars)
+				usecase.ShowAllCar(AllCars)
 
 				fmt.Println()
 				fmt.Println("Enter index of car to remove :")

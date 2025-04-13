@@ -40,11 +40,11 @@
   "Price": 70000
  },
  {
-  "Brand": "Honda",
-  "Model": "Civic",
-  "Transmission": "Manual",
-  "Year": 2001,
-  "HoursePower": 230,
-  "Price": 10000
+  "Brand": "Ferrari",
+  "Model": "F12",
+  "Transmission": "Auto",
+  "Year": 2012,
+  "HoursePower": 600,
+  "Price": 250000
  }
 ]
