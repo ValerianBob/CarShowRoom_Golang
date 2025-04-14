@@ -1,11 +1,11 @@
 [
  {
-  "brand": "Ford",
-  "model": "Mustang Shelby",
+  "brand": "Konigseg",
+  "model": "Regera",
   "transmission": "Auto",
-  "year": 2013,
-  "hoursepower": 900,
-  "price": 2000000
+  "year": 2016,
+  "hoursepower": 850,
+  "price": 5000000
  },
  {
   "brand": "Dodge",
@@ -48,7 +48,7 @@
   "price": 2000
  },
  {
-  "brand": "Pagani",
+  "brand": "PaganI",
   "model": "Hyaura",
   "transmission": "Auto",
   "year": 1998,
@@ -56,11 +56,27 @@
   "price": 20000
  },
  {
-  "brand": "Buic",
-  "model": "Choper",
+  "brand": "Rang Rover",
+  "model": "Jeep",
+  "transmission": "Auto",
+  "year": 2010,
+  "hoursepower": 300,
+  "price": 80000
+ },
+ {
+  "brand": "Buggati",
+  "model": "Vieron",
   "transmission": "Manual",
-  "year": 2000,
-  "hoursepower": 900,
-  "price": 8000
+  "year": 2008,
+  "hoursepower": 1200,
+  "price": 3000000
+ },
+ {
+  "brand": "Jeep",
+  "model": "Folc",
+  "transmission": "Auto",
+  "year": 2007,
+  "hoursepower": 322,
+  "price": 20000
  }
 ]

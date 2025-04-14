@@ -2,7 +2,6 @@ package usecase
 
 import (
 	"fmt"
-	"net/http"
 	"os"
 	"os/exec"
 	"runtime"
@@ -23,12 +22,12 @@ func ClearConsole() {
 
 func Init() {
 
-	CRUDHTTPHandler()
-	go func() {
-		if err := http.ListenAndServe(":8080", nil); err != nil {
-			fmt.Println("Server get error", err)
-		}
-	}()
+	RunServer()
+	// go func() {
+	// 	if err := http.ListenAndServe(":8080", nil); err != nil {
+	// 		fmt.Println("Server get error", err)
+	// 	}
+	// }()
 
 	AllCars := ReadCarsFromJson()
 
