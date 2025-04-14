@@ -23,11 +23,6 @@ func ClearConsole() {
 func Init() {
 
 	RunServer()
-	// go func() {
-	// 	if err := http.ListenAndServe(":8080", nil); err != nil {
-	// 		fmt.Println("Server get error", err)
-	// 	}
-	// }()
 
 	AllCars := ReadCarsFromJson()
 
