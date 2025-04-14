@@ -1,6 +1,7 @@
 package run
 
 import (
+	"Modules/internal/handlers"
 	"Modules/internal/usecase"
 	"fmt"
 	"os"
@@ -54,11 +55,12 @@ func Init() {
 		switch userInput {
 
 		case "1":
-			fmt.Println("")
-			usecase.ShowAllCar(AllCars)
-			fmt.Println()
-			fmt.Println("Press enter to continue :")
-			fmt.Scanln(&continueInput)
+			// fmt.Println("")
+			// usecase.ShowAllCar(AllCars)
+			// fmt.Println()
+			// fmt.Println("Press enter to continue :")
+			// fmt.Scanln(&continueInput)
+			handlers.ShowAllCar(AllCars, continueInput)
 			ClearConsole()
 
 		case "2":
