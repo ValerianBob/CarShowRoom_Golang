@@ -1,26 +1,10 @@
 package run
 
 import (
-	"Modules/internal/handlers"
+	"Modules/internal/handler"
 	"Modules/internal/usecase"
 	"fmt"
-	"os"
-	"os/exec"
-	"runtime"
 )
-
-func ClearConsole() {
-	switch runtime.GOOS {
-	case "windows":
-		cmd := exec.Command("cmd", "/C", "cls")
-		cmd.Stdout = os.Stdout
-		cmd.Run()
-	default:
-		cmd := exec.Command("clear")
-		cmd.Stdout = os.Stdout
-		cmd.Run()
-	}
-}
 
 func Init() {
 	RunServer()
@@ -55,91 +39,13 @@ func Init() {
 		switch userInput {
 
 		case "1":
-			// fmt.Println("")
-			// usecase.ShowAllCar(AllCars)
-			// fmt.Println()
-			// fmt.Println("Press enter to continue :")
-			// fmt.Scanln(&continueInput)
-			handlers.ShowAllCar(AllCars, continueInput)
-			ClearConsole()
-
+			handler.ShowAllCarsConsole(AllCars, continueInput)
 		case "2":
-			fmt.Println("")
-			newCar := usecase.NewCarInfo()
-			AllCars = append(AllCars, newCar)
-
-			fmt.Println()
-			fmt.Println("Car added !")
-			fmt.Println()
-			fmt.Println("Press enter to continue :")
-			fmt.Scanln(&continueInput)
-			usecase.SaveCarsInJson(AllCars)
-			ClearConsole()
-
+			AllCars = handler.AddCarConsole(AllCars, continueInput)
 		case "3":
-			fmt.Println("")
-			usecase.ShowAllCar(AllCars)
-			fmt.Println()
-			fmt.Println("Enter index of car to change info :")
-			fmt.Scanln(&index)
-
-			if index < 1 || index > len(AllCars) {
-
-				fmt.Println("Wrong index ! Press enter to continue :")
-				fmt.Scanln(&continueInput)
-				ClearConsole()
-
-			} else {
-
-				newCar := usecase.NewCarInfo()
-				AllCars[index-1] = newCar
-
-				fmt.Println()
-				fmt.Println("Car Info Updated !")
-				fmt.Println()
-				fmt.Println("Press enter to continue :")
-				fmt.Scanln(&continueInput)
-				usecase.SaveCarsInJson(AllCars)
-				ClearConsole()
-			}
-
+			AllCars = handler.UpdateCarConsole(AllCars, continueInput, index)
 		case "4":
-			if len(AllCars) == 1 {
-
-				fmt.Println()
-				fmt.Println("You can't remove last car. Press enter to continue :")
-				fmt.Scanln(&continueInput)
-				ClearConsole()
-
-			} else {
-
-				fmt.Println("")
-
-				usecase.ShowAllCar(AllCars)
-
-				fmt.Println()
-				fmt.Println("Enter index of car to remove :")
-				fmt.Scanln(&index)
-
-				if index < 1 || index > len(AllCars) {
-
-					fmt.Println("Wrong index ! Press enter to continue :")
-					fmt.Scanln(&continueInput)
-					ClearConsole()
-
-				} else {
-
-					AllCars = append(AllCars[:index-1], AllCars[index:]...)
-
-					fmt.Println()
-					fmt.Println("Car removed !")
-					fmt.Println()
-					fmt.Println("Press enter to continue :")
-					fmt.Scanln(&continueInput)
-					usecase.SaveCarsInJson(AllCars)
-					ClearConsole()
-				}
-			}
+			AllCars = handler.DeleteCarConsole(AllCars, continueInput, index)
 
 		case "0":
 			fmt.Println()
@@ -151,7 +57,7 @@ func Init() {
 			fmt.Println()
 			fmt.Println("Invalid action. Press enter to continue :")
 			fmt.Scanln(&continueInput)
-			ClearConsole()
+			handler.ClearConsole()
 			fmt.Println()
 		}
 	}

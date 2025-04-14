@@ -94,5 +94,13 @@
   "year": 2007,
   "hoursepower": 452,
   "price": 80000
+ },
+ {
+  "brand": "Ford",
+  "model": "Raptor",
+  "transmission": "Auto",
+  "year": 2018,
+  "hoursepower": 400,
+  "price": 50000
  }
 ]
