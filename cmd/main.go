@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Modules/internal/usecase"
+	"Modules/internal/run"
 )
 
 func main() {
-	usecase.Init()
+	run.Init()
 }

@@ -1,8 +1,8 @@
-package server
+package run
 
 import (
-	"Modules/internal/common"
 	"Modules/internal/model"
+	"Modules/internal/usecase"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -19,27 +19,27 @@ func FunctionA(b serverInterface) {
 }
 
 func GetAllCars(c *gin.Context) {
-	cars := common.ReadCarsFromJson()
+	cars := usecase.ReadCarsFromJson()
 
 	c.JSON(http.StatusOK, cars)
 }
 
 func AddNewCar(c *gin.Context) {
-	cars := common.ReadCarsFromJson()
+	cars := usecase.ReadCarsFromJson()
 	newCar := model.Car{}
 
 	c.ShouldBind(&newCar)
 
 	cars = append(cars, newCar)
 
-	common.SaveCarsInJson(cars)
+	usecase.SaveCarsInJson(cars)
 
 	fmt.Println("New Car Added:")
 	newCar.ShowCarInfo()
 }
 
 func UpdateCar(c *gin.Context) {
-	cars := common.ReadCarsFromJson()
+	cars := usecase.ReadCarsFromJson()
 	updatedCar := model.Car{}
 
 	indexStr := c.Query("index")
@@ -58,14 +58,14 @@ func UpdateCar(c *gin.Context) {
 
 	cars[index] = updatedCar
 
-	common.SaveCarsInJson(cars)
+	usecase.SaveCarsInJson(cars)
 
 	fmt.Println("Car updated:")
 	updatedCar.ShowCarInfo()
 }
 
 func DeleteCar(c *gin.Context) {
-	Cars := common.ReadCarsFromJson()
+	Cars := usecase.ReadCarsFromJson()
 
 	indexStr := c.Query("index")
 	index, err := strconv.Atoi(indexStr)
@@ -81,7 +81,7 @@ func DeleteCar(c *gin.Context) {
 
 	Cars = append(Cars[:index], Cars[index+1:]...)
 
-	common.SaveCarsInJson(Cars)
+	usecase.SaveCarsInJson(Cars)
 
 	fmt.Println("Car removed")
 	Cars[index].ShowCarInfo()

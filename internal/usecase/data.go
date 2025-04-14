@@ -1,4 +1,4 @@
-package common
+package usecase
 
 import (
 	"Modules/internal/model"
