@@ -1,6 +1,8 @@
 package usecase
 
 import (
+	"Modules/internal/common"
+	"Modules/internal/server"
 	"fmt"
 	"os"
 	"os/exec"
@@ -21,10 +23,9 @@ func ClearConsole() {
 }
 
 func Init() {
+	server.RunServer()
 
-	RunServer()
-
-	AllCars := ReadCarsFromJson()
+	AllCars := common.ReadCarsFromJson()
 
 	//Console inputs :
 	userInput := ""
@@ -71,7 +72,7 @@ func Init() {
 			fmt.Println()
 			fmt.Println("Press enter to continue :")
 			fmt.Scanln(&continueInput)
-			SaveCarsInJson(AllCars)
+			common.SaveCarsInJson(AllCars)
 			ClearConsole()
 
 		case "3":
@@ -97,7 +98,7 @@ func Init() {
 				fmt.Println()
 				fmt.Println("Press enter to continue :")
 				fmt.Scanln(&continueInput)
-				SaveCarsInJson(AllCars)
+				common.SaveCarsInJson(AllCars)
 				ClearConsole()
 			}
 
@@ -134,7 +135,7 @@ func Init() {
 					fmt.Println()
 					fmt.Println("Press enter to continue :")
 					fmt.Scanln(&continueInput)
-					SaveCarsInJson(AllCars)
+					common.SaveCarsInJson(AllCars)
 					ClearConsole()
 				}
 			}

@@ -78,5 +78,21 @@
   "year": 2007,
   "hoursepower": 322,
   "price": 20000
+ },
+ {
+  "brand": "Bently",
+  "model": "Continental",
+  "transmission": "auto",
+  "year": 2009,
+  "hoursepower": 123,
+  "price": 400000
+ },
+ {
+  "brand": "Ford",
+  "model": "Mustang",
+  "transmission": "Auto",
+  "year": 2007,
+  "hoursepower": 452,
+  "price": 80000
  }
 ]
