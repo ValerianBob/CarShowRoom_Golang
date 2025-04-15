@@ -1,7 +1,7 @@
 package run
 
 import (
-	"Modules/internal/handler"
+	"Modules/internal/adapters/handler/http"
 	"fmt"
 
 	"github.com/gin-gonic/gin"
@@ -10,10 +10,14 @@ import (
 func RunServer() {
 	router := gin.Default()
 
-	router.GET("/cars", handler.GetAllCars)
-	router.POST("/cars/add", handler.AddNewCar)
-	router.PUT("/cars/update", handler.UpdateCar)
-	router.DELETE("/cars/delete", handler.DeleteCar)
+	cars := router.Group("/cars")
+	{
+		cars.GET("/", http.GetAllCars)
+		cars.GET("/:id", http.GetCarById)
+		cars.POST("/", http.AddNewCar)
+		cars.PUT("/:id", http.UpdateCar)
+		cars.DELETE("/:id", http.DeleteCar)
+	}
 
 	go func() {
 		if err := router.Run(":8080"); err != nil {

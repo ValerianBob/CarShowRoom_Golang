@@ -1,13 +1,5 @@
 [
  {
-  "brand": "Konigseg",
-  "model": "Regera",
-  "transmission": "Auto",
-  "year": 2016,
-  "hoursepower": 850,
-  "price": 5000000
- },
- {
   "brand": "Dodge",
   "model": "Challenger",
   "transmission": "Auto",
@@ -101,6 +93,14 @@
   "transmission": "Auto",
   "year": 2018,
   "hoursepower": 400,
+  "price": 50000
+ },
+ {
+  "brand": "Aston Martin",
+  "model": "DBR",
+  "transmission": "Auto",
+  "year": 2017,
+  "hoursepower": 752,
   "price": 50000
  }
 ]

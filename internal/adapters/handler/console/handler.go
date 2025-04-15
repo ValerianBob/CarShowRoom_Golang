@@ -1,4 +1,4 @@
-package handler
+package console
 
 import (
 	"Modules/internal/model"

@@ -1,12 +1,16 @@
 package run
 
 import (
-	"Modules/internal/handler"
+	"Modules/internal/adapters/handler/console"
 	"Modules/internal/usecase"
 	"fmt"
+	"os"
 )
 
 func Init() {
+	cwd, _ := os.Getwd()
+	fmt.Println("📂 Current working directory:", cwd)
+
 	RunServer()
 
 	AllCars := usecase.ReadCarsFromJson()
@@ -39,13 +43,13 @@ func Init() {
 		switch userInput {
 
 		case "1":
-			handler.ShowAllCarsConsole(AllCars, continueInput)
+			console.ShowAllCarsConsole(AllCars, continueInput)
 		case "2":
-			AllCars = handler.AddCarConsole(AllCars, continueInput)
+			AllCars = console.AddCarConsole(AllCars, continueInput)
 		case "3":
-			AllCars = handler.UpdateCarConsole(AllCars, continueInput, index)
+			AllCars = console.UpdateCarConsole(AllCars, continueInput, index)
 		case "4":
-			AllCars = handler.DeleteCarConsole(AllCars, continueInput, index)
+			AllCars = console.DeleteCarConsole(AllCars, continueInput, index)
 
 		case "0":
 			fmt.Println()
@@ -57,7 +61,7 @@ func Init() {
 			fmt.Println()
 			fmt.Println("Invalid action. Press enter to continue :")
 			fmt.Scanln(&continueInput)
-			handler.ClearConsole()
+			console.ClearConsole()
 			fmt.Println()
 		}
 	}

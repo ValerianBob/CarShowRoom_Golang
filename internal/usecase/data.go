@@ -14,7 +14,7 @@ func SaveCarsInJson(c []model.Car) {
 		return
 	}
 
-	err = os.WriteFile("../assets/CarsData.json", jsonData, 0644)
+	err = os.WriteFile("internal/adapters/repository/CarsData.json", jsonData, 0644)
 	if err != nil {
 		fmt.Println("Error writing to file:", err)
 		return
@@ -24,7 +24,7 @@ func SaveCarsInJson(c []model.Car) {
 func ReadCarsFromJson() []model.Car {
 	AllCars := []model.Car{}
 
-	carsData, err := os.ReadFile("../assets/CarsData.json")
+	carsData, err := os.ReadFile("internal/adapters/repository/CarsData.json")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		AllCars = []model.Car{}

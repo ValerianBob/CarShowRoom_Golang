@@ -1,4 +1,4 @@
-package handler
+package http
 
 import (
 	"Modules/internal/model"
@@ -14,6 +14,21 @@ func GetAllCars(c *gin.Context) {
 	cars := usecase.ReadCarsFromJson()
 
 	c.JSON(http.StatusOK, cars)
+}
+
+func GetCarById(c *gin.Context) {
+	cars := usecase.ReadCarsFromJson()
+
+	indexStr := c.Param("id")
+	index, err := strconv.Atoi(indexStr)
+	if err != nil {
+		fmt.Println("Not correct id")
+		return
+	}
+
+	carById := cars[index]
+
+	c.JSON(http.StatusOK, carById)
 }
 
 func AddNewCar(c *gin.Context) {
@@ -34,7 +49,7 @@ func UpdateCar(c *gin.Context) {
 	cars := usecase.ReadCarsFromJson()
 	updatedCar := model.Car{}
 
-	indexStr := c.Query("index")
+	indexStr := c.Param("id")
 	index, err := strconv.Atoi(indexStr)
 	if err != nil {
 		fmt.Println("Index not correct !")
@@ -57,24 +72,24 @@ func UpdateCar(c *gin.Context) {
 }
 
 func DeleteCar(c *gin.Context) {
-	Cars := usecase.ReadCarsFromJson()
+	cars := usecase.ReadCarsFromJson()
 
-	indexStr := c.Query("index")
+	indexStr := c.Param("id")
 	index, err := strconv.Atoi(indexStr)
 	if err != nil {
 		fmt.Println("Index is not correct !")
 		return
 	}
 
-	if index < 0 || index >= len(Cars) {
+	if index < 0 || index >= len(cars) {
 		fmt.Println("Index not correct !")
 		return
 	}
 
-	Cars = append(Cars[:index], Cars[index+1:]...)
+	cars = append(cars[:index], cars[index+1:]...)
 
-	usecase.SaveCarsInJson(Cars)
+	usecase.SaveCarsInJson(cars)
 
 	fmt.Println("Car removed")
-	Cars[index].ShowCarInfo()
+	cars[index].ShowCarInfo()
 }
