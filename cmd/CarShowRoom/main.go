@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Modules/internal/run"
+	"CarShowRoom/internal/run"
 )
 
 func main() {

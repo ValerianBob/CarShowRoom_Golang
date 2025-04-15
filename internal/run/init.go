@@ -1,19 +1,18 @@
 package run
 
 import (
-	"Modules/internal/adapters/handler/console"
-	"Modules/internal/usecase"
+	"CarShowRoom/internal/adapters/handler/console"
+	"CarShowRoom/internal/usecase"
 	"fmt"
-	"os"
 )
 
 func Init() {
-	cwd, _ := os.Getwd()
-	fmt.Println("📂 Current working directory:", cwd)
 
 	RunServer()
 
-	AllCars := usecase.ReadCarsFromJson()
+	data_interface := usecase.JsonDatabase{}
+
+	AllCars := data_interface.ReadCarsFromJson()
 
 	//Console inputs :
 	userInput := ""

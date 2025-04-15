@@ -1,27 +1,32 @@
 package usecase
 
 import (
-	"Modules/internal/model"
+	"CarShowRoom/internal/model"
 	"encoding/json"
 	"fmt"
 	"os"
 )
 
-func SaveCarsInJson(c []model.Car) {
-	jsonData, err := json.MarshalIndent(c, "", " ")
-	if err != nil {
-		fmt.Println("Error with json save", err)
+type JsonDatabase struct {
+	jsonData []byte
+	err      error
+}
+
+func (jd JsonDatabase) SaveCarsInJson(c []model.Car) {
+	jd.jsonData, jd.err = json.MarshalIndent(c, "", " ")
+	if jd.err != nil {
+		fmt.Println("Error with json save", jd.err)
 		return
 	}
 
-	err = os.WriteFile("internal/adapters/repository/CarsData.json", jsonData, 0644)
-	if err != nil {
-		fmt.Println("Error writing to file:", err)
+	jd.err = os.WriteFile("internal/adapters/repository/CarsData.json", jd.jsonData, 0644)
+	if jd.err != nil {
+		fmt.Println("Error writing to file:", jd.err)
 		return
 	}
 }
 
-func ReadCarsFromJson() []model.Car {
+func (jd JsonDatabase) ReadCarsFromJson() []model.Car {
 	AllCars := []model.Car{}
 
 	carsData, err := os.ReadFile("internal/adapters/repository/CarsData.json")
