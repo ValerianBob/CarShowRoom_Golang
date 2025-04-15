@@ -14,7 +14,7 @@ func Init() {
 
 	AllCars := data_interface.ReadCarsFromJson()
 
-	//Console inputs :
+	// Console inputs :
 	userInput := ""
 	continueInput := ""
 	index := 0
