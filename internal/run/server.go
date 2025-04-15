@@ -1,7 +1,7 @@
 package run
 
 import (
-	"Modules/internal/adapters/handler/http"
+	"CarShowRoom/internal/adapters/handler/http"
 	"fmt"
 
 	"github.com/gin-gonic/gin"

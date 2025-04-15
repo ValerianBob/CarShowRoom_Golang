@@ -1,8 +1,8 @@
 package console
 
 import (
-	"Modules/internal/model"
-	"Modules/internal/usecase"
+	"CarShowRoom/internal/model"
+	"CarShowRoom/internal/usecase"
 	"fmt"
 	"os"
 	"os/exec"
@@ -23,16 +23,18 @@ func ClearConsole() {
 }
 
 func ShowAllCarsConsole(AllCars []model.Car, continueInput string) {
+	car_interface := model.Car{}
 	fmt.Println("")
-	usecase.ShowAllCar(AllCars)
+	car_interface.ShowAllCar(AllCars)
 	fmt.Println()
 	fmt.Println("Press enter to continue :")
 	fmt.Scanln(&continueInput)
 }
 
 func AddCarConsole(AllCars []model.Car, continueInput string) []model.Car {
+	car_interface := model.Car{}
 	fmt.Println("")
-	newCar := usecase.NewCarInfo()
+	newCar := car_interface.NewCarInfo()
 	AllCars = append(AllCars, newCar)
 
 	fmt.Println()
@@ -46,8 +48,9 @@ func AddCarConsole(AllCars []model.Car, continueInput string) []model.Car {
 }
 
 func UpdateCarConsole(AllCars []model.Car, continueInput string, index int) []model.Car {
+	car_interface := model.Car{}
 	fmt.Println("")
-	usecase.ShowAllCar(AllCars)
+	car_interface.ShowAllCar(AllCars)
 	fmt.Println()
 	fmt.Println("Enter index of car to change info :")
 	fmt.Scanln(&index)
@@ -60,7 +63,7 @@ func UpdateCarConsole(AllCars []model.Car, continueInput string, index int) []mo
 
 	} else {
 
-		newCar := usecase.NewCarInfo()
+		newCar := car_interface.NewCarInfo()
 		AllCars[index-1] = newCar
 
 		fmt.Println()
@@ -75,6 +78,7 @@ func UpdateCarConsole(AllCars []model.Car, continueInput string, index int) []mo
 }
 
 func DeleteCarConsole(AllCars []model.Car, continueInput string, index int) []model.Car {
+	car_interface := model.Car{}
 	if len(AllCars) == 1 {
 
 		fmt.Println()
@@ -86,7 +90,7 @@ func DeleteCarConsole(AllCars []model.Car, continueInput string, index int) []mo
 
 		fmt.Println("")
 
-		usecase.ShowAllCar(AllCars)
+		car_interface.ShowAllCar(AllCars)
 
 		fmt.Println()
 		fmt.Println("Enter index of car to remove :")

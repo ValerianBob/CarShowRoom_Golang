@@ -1,8 +1,8 @@
 package http
 
 import (
-	"Modules/internal/model"
-	"Modules/internal/usecase"
+	"CarShowRoom/internal/model"
+	"CarShowRoom/internal/usecase"
 	"fmt"
 	"net/http"
 	"strconv"

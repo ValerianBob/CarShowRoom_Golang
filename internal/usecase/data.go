@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"Modules/internal/model"
+	"CarShowRoom/internal/model"
 	"encoding/json"
 	"fmt"
 	"os"
