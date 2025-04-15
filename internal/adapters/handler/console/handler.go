@@ -32,6 +32,8 @@ func ShowAllCarsConsole(AllCars []model.Car, continueInput string) {
 }
 
 func AddCarConsole(AllCars []model.Car, continueInput string) []model.Car {
+	data_interface := usecase.JsonDatabase{}
+
 	car_interface := model.Car{}
 	fmt.Println("")
 	newCar := car_interface.NewCarInfo()
@@ -41,13 +43,15 @@ func AddCarConsole(AllCars []model.Car, continueInput string) []model.Car {
 	fmt.Println("Car added !")
 	fmt.Println()
 	fmt.Println("Press enter to continue :")
-	usecase.SaveCarsInJson(AllCars)
+	data_interface.SaveCarsInJson(AllCars)
 	fmt.Scanln(&continueInput)
 
 	return AllCars
 }
 
 func UpdateCarConsole(AllCars []model.Car, continueInput string, index int) []model.Car {
+	data_interface := usecase.JsonDatabase{}
+
 	car_interface := model.Car{}
 	fmt.Println("")
 	car_interface.ShowAllCar(AllCars)
@@ -70,7 +74,7 @@ func UpdateCarConsole(AllCars []model.Car, continueInput string, index int) []mo
 		fmt.Println("Car Info Updated !")
 		fmt.Println()
 		fmt.Println("Press enter to continue :")
-		usecase.SaveCarsInJson(AllCars)
+		data_interface.SaveCarsInJson(AllCars)
 		fmt.Scanln(&continueInput)
 		ClearConsole()
 	}
@@ -78,6 +82,8 @@ func UpdateCarConsole(AllCars []model.Car, continueInput string, index int) []mo
 }
 
 func DeleteCarConsole(AllCars []model.Car, continueInput string, index int) []model.Car {
+	data_interface := usecase.JsonDatabase{}
+
 	car_interface := model.Car{}
 	if len(AllCars) == 1 {
 
@@ -110,7 +116,7 @@ func DeleteCarConsole(AllCars []model.Car, continueInput string, index int) []mo
 			fmt.Println("Car removed !")
 			fmt.Println()
 			fmt.Println("Press enter to continue :")
-			usecase.SaveCarsInJson(AllCars)
+			data_interface.SaveCarsInJson(AllCars)
 			fmt.Scanln(&continueInput)
 			ClearConsole()
 		}

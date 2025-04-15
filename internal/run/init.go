@@ -10,7 +10,9 @@ func Init() {
 
 	RunServer()
 
-	AllCars := usecase.ReadCarsFromJson()
+	data_interface := usecase.JsonDatabase{}
+
+	AllCars := data_interface.ReadCarsFromJson()
 
 	//Console inputs :
 	userInput := ""

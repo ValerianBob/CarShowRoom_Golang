@@ -11,13 +11,17 @@ import (
 )
 
 func GetAllCars(c *gin.Context) {
-	cars := usecase.ReadCarsFromJson()
+	data_interface := usecase.JsonDatabase{}
+
+	cars := data_interface.ReadCarsFromJson()
 
 	c.JSON(http.StatusOK, cars)
 }
 
 func GetCarById(c *gin.Context) {
-	cars := usecase.ReadCarsFromJson()
+	data_interface := usecase.JsonDatabase{}
+
+	cars := data_interface.ReadCarsFromJson()
 
 	indexStr := c.Param("id")
 	index, err := strconv.Atoi(indexStr)
@@ -32,21 +36,25 @@ func GetCarById(c *gin.Context) {
 }
 
 func AddNewCar(c *gin.Context) {
-	cars := usecase.ReadCarsFromJson()
+	data_interface := usecase.JsonDatabase{}
+
+	cars := data_interface.ReadCarsFromJson()
 	newCar := model.Car{}
 
 	c.ShouldBind(&newCar)
 
 	cars = append(cars, newCar)
 
-	usecase.SaveCarsInJson(cars)
+	data_interface.SaveCarsInJson(cars)
 
 	fmt.Println("New Car Added:")
 	newCar.ShowCarInfo()
 }
 
 func UpdateCar(c *gin.Context) {
-	cars := usecase.ReadCarsFromJson()
+	data_interface := usecase.JsonDatabase{}
+
+	cars := data_interface.ReadCarsFromJson()
 	updatedCar := model.Car{}
 
 	indexStr := c.Param("id")
@@ -65,14 +73,16 @@ func UpdateCar(c *gin.Context) {
 
 	cars[index] = updatedCar
 
-	usecase.SaveCarsInJson(cars)
+	data_interface.SaveCarsInJson(cars)
 
 	fmt.Println("Car updated:")
 	updatedCar.ShowCarInfo()
 }
 
 func DeleteCar(c *gin.Context) {
-	cars := usecase.ReadCarsFromJson()
+	data_interface := usecase.JsonDatabase{}
+
+	cars := data_interface.ReadCarsFromJson()
 
 	indexStr := c.Param("id")
 	index, err := strconv.Atoi(indexStr)
@@ -88,7 +98,7 @@ func DeleteCar(c *gin.Context) {
 
 	cars = append(cars[:index], cars[index+1:]...)
 
-	usecase.SaveCarsInJson(cars)
+	data_interface.SaveCarsInJson(cars)
 
 	fmt.Println("Car removed")
 	cars[index].ShowCarInfo()
